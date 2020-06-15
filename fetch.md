@@ -56,8 +56,10 @@ export default function request(url: RequestInfo, option: RequestInit | any) {
   if (option.body && option.body.file) {
     // 文件上传接口
     const formdata = new FormData();
-    formdata.append('file', option.body.file);
-    formdata.append('applyNo', option.body.applyNo);
+    
+    for( var key in option.body ){
+      formdata.append(key, option.body[key]);
+    }
     body = formdata
   } else {
     headers = {
@@ -71,7 +73,7 @@ export default function request(url: RequestInfo, option: RequestInit | any) {
     body: body,
     headers: {
       ...headers,
-      ...requestHeader,
+      ...requestHeader(),
     },
   };
 

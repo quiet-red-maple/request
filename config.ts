@@ -38,17 +38,20 @@ export const errorTips = (response: ResponseType) => {
   });
 };
 
-// 得到token
-const token = sessionStorage.getItem('token')
-  ? sessionStorage.getItem('token')
-  : localStorage.getItem('token')
-  ? localStorage.getItem('token')
-  : undefined;
-
 // 请求前对请求头处理
-export const requestHeader: any = {
-  token: token,
-  Accept: 'application/json',
+export const requestHeader: any = () => {
+  // 得到token
+  const token = 
+    sessionStorage.getItem('token')
+    ? sessionStorage.getItem('token')
+    : localStorage.getItem('token')
+    ? localStorage.getItem('token')
+    : undefined;
+  
+  return {
+    token: token,
+    Accept: 'application/json',
+  }
 };
 
 // 封装层自定义对应请求状态码（返回值的封装处理）
@@ -79,3 +82,4 @@ export const customCodeMessage = (
       break;
   }
 };
+
