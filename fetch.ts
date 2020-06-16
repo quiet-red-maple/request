@@ -1,6 +1,4 @@
-fetch 请求封装配合 antd 提示
-添加了请求超时并断开连接
-```js
+
 // 新请求处理
 import { timeout, codeMessage, errorTips, customCodeMessage, requestHeader } from './config';
 
@@ -92,4 +90,3 @@ export default function request(url: RequestInfo, option: RequestInit | any) {
       errorTips(error)
     });
 }
-```
