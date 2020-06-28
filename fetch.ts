@@ -46,6 +46,17 @@ let fetchPromise = (url: RequestInfo, options: RequestInit) => {
   })
 };
 
+/**
+ * @description: fetch请求封装 调用示例
+ * request(url, {
+    method: 'POST', 请求类型
+    body: value 请求参数
+  });
+ * @param {string}: url请求地址
+ * @param {RequestInit|object}: 请求的自定义配置
+ * @return {object}: 返回一个Promise<unknown>
+ */
+
 export default function request(url: RequestInfo, option: RequestInit | any) {
 
   let body: any = option.body ? JSON.stringify(option.body) : undefined;
